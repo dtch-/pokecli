@@ -1,0 +1,29 @@
+ITEMS
+
+Synopsis:
+	List of items and their effects
+
+MEDICAL:
+Potion			+20 HP
+Super Potion	+50 HP
+Hyper Potion	+200 HP
+Max Potion		+$(maxhp) HP
+Full Restore	-All Stat +$(maxhp) HP
+
+Antidote		-PSN Stat
+Awakening		-SLP Stat
+Burn Heal		-BRN Stat
+Ice Heal		-FRZ Stat
+Parlyz Heal		-PLZ Stat
+Full Heal		-All Stat
+
+Ether			+10 PP (single)
+Elixir			+10 PP (all)
+Max Ether		+$(maxpp) PP (single)
+Max Elixir		+$(maxpp) PP (all)
+
+*Reminder: +2560 EP not above 25600 EP
+Calcium			+2560 SPC SE
+Carbos			+2560 SPD SE
+Iron			+2560 DEF SE
+HP Up			+2560 HP SE
