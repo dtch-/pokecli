@@ -1,6 +1,6 @@
 Design document for Poke-CLI
 
-v 0.00 (Pre-Coding) 12.24.2014 - Writing up design document and planning story.
+v 0.00b 12.27.2014 - Finished pokeball simulator
 
 **SYNOPSIS:**  
 A text-adventure Pokemon Game written in C++.
