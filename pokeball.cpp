@@ -14,8 +14,8 @@
 using namespace std;
 
 // Declaration of variables
-string ball_type;
 string poke_stat;
+int ball_type;
 int ball_rate;
 int stat_reduct;
 int poke_hp_max;
@@ -26,15 +26,14 @@ int fcaught;
 
 void balltype() {
 	cout << "Which ball type?" << endl;
-	cout << "\npoke\ngreat\nultra\nmaster\n" << endl;
+	cout << "\n1) poke\n2) great\n3) ultra\n4) master\n" << endl;
 	cin >> ball_type;
-	cout << "\nball type is " << ball_type << "ball\n" << endl;
 }
 
 void getstats() {
 	cout << "Enter Pokemon Catch Rate (3 - 255)" << endl;
 	cin >> poke_catch_rate;
-	cout << "\nEnter Pokemon Status:\nSLP\nFRZ\nPAR\nBRN\nPSN\nEnter nothing for no ailment" << endl;
+	cout << "\nEnter Pokemon Status:\nSLP\nFRZ\nPAR\nBRN\nPSN\nEnter N for no ailment" << endl;
 	cin >> poke_stat;
 	cout << "Enter health (1 - 100)" << endl;
 	cin >> poke_hp_cur;
@@ -58,65 +57,52 @@ void pokestat() {
 void ballrate() {
 	srand (time(NULL));
 
+	int n;
 	int m;
 	int f;
 	m = rand() % 255 + 1;
 
 	poke_hp_max = 100;
 
-	if (ball_type == "master") {
-		cout << "Masterball was thrown." << endl;
-		cout << "Pokemon was caught." << endl;
+	switch (ball_type) {
+		case 1:
+			n = rand() % 255 + 1;
+			fball = 12;
+			cout << "\nPokeball selected.\n";
+			break;
+		case 2:
+			n = rand() % 200 + 1;
+			fball = 8;
+			cout << "\nGreatball selected.\n";
+			break;
+		case 3:
+			n = rand() % 150 + 1;
+			fball = 6;
+			cout << "\nUltraball selected.\n";
+			break;
+		case 4:
+			cout << "\nMasterball selected.\n";
+			break;
+		default:
+			cout << "Illegal option." << endl;	
 	}
-	else if (ball_type == "poke") {
-		cout << "Pokeball was thrown." << endl;
-		cout << "Generating number between 0 and 255" << endl;
-		int n;
-		n = rand() % 255 + 1;
-		fball = 12;
+
+	if (ball_type != 4) {
+
 		f = (poke_hp_max * 255 * 4)/(poke_hp_cur * fball);
-		cout << "N = " << n << endl; 
-		
+
 		if (n - stat_reduct <= 25 | f > m) {
 			cout << "Pokemon was caught!" << endl;
 		}
-		else {
-			cout << "Pokemon broke free!" << endl;
-		}
 
-	}
-	else if (ball_type == "great") {
-		cout << "Greatball was thrown." << endl;
-		cout << "Generating number between 0 and 200" << endl;
-		int n0;
-		n0 = rand() % 200 + 1;
-		fball = 8;
-		f = (poke_hp_max * 255 * 4)/(poke_hp_cur * fball);
-		cout << "N = " << n0 << endl;
-
-		if (n0 - stat_reduct <= 25 | f > m){
-			cout << "Pokemon was caught!" << endl;
-		}
 		else {
 			cout << "Pokemon broke free!" << endl;
 		}
 	}
 	else {
-		cout << "Ultraball was thrown." << endl;
-		cout << "Generating number between 0 and 150" << endl;
-		int n1;
-		n1 = rand() % 150 + 1;
-		fball = 6;
-		f = (poke_hp_max * 255 * 4)/(poke_hp_cur * fball);
-		cout << "N = " << n1 << endl;
-	
-		if (n1 - stat_reduct <= 25 | f > m) {
-			cout << "Pokemon was caught!" << endl;
-		}
-		else {
-			cout << "Pokemon broke free!" << endl;
-		}
+		cout << "Pokemon was caught!" << endl;
 	}
+
 }
 
 int main() {
